@@ -1,3 +1,3 @@
 coding
 ======
-a repository of php internal implement
+some mess code at work or study
