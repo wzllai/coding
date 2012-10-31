@@ -1,11 +1,11 @@
-<?php
+ï»¿<?php
 /**
- * µ¥Ôª²âÊÔÌ×¼þ£¬Ö´ÐÐÒÔTest.php½áÎ²µÄÎÄ¼þ
- * ÔËÐÐÈ«²¿²âÊÔ Ö±½ÓÖ´ÐÐ  phpunit Suite.php
- * ÔËÐÐÖ¸¶¨Ä£¿é(¿É¶à¸ö)²âÊÔ Ö´ÐÐ  phpunit Suite.php Ä£¿éÃû [Ä£¿éÃû ...]
+ * å•å…ƒæµ‹è¯•å¥—ä»¶ï¼Œæ‰§è¡Œä»¥Test.phpç»“å°¾çš„æ–‡ä»¶
+ * è¿è¡Œå…¨éƒ¨æµ‹è¯• ç›´æŽ¥æ‰§è¡Œ  phpunit Suite.php
+ * è¿è¡ŒæŒ‡å®šæ¨¡å—(å¯å¤šä¸ª)æµ‹è¯• æ‰§è¡Œ  phpunit Suite.php æ¨¡å—å [æ¨¡å—å ...]
  */
 
-require_once "PHPUnit/Framework.php";
+require_once "PHPUnit/Framework.php"; //æµ‹è¯•æ¡†æž¶åœ¨get_include_path()è·¯å¾„ä¸­
 
 class Suite extends PHPUnit_Framework_TestSuite
 {
@@ -15,7 +15,7 @@ class Suite extends PHPUnit_Framework_TestSuite
 	}
 	
 	/**
-	 * Ìí¼Ó²âÊÔÎÄ¼þµ½Ì×¼þÖÐ
+	 * æ·»åŠ æµ‹è¯•æ–‡ä»¶åˆ°å¥—ä»¶ä¸­
 	 */
 	public function addTestFileToSuit()
 	{
