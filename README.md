@@ -1,4 +1,3 @@
 coding
 ======
-some mess code at work or study
-hehe3
+工作或学习中遇到可以共用的一些代码
