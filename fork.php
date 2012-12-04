@@ -1,10 +1,10 @@
 <?php
-$max = 6;
+$max 	 = 6;
 $current = 0;
 pcntl_signal(SIGCHLD, "reduce_current");
 
 /*
-* signal callback function 
+ * signal callback function 
 */
 function reduce_current($signal)
 {
@@ -12,6 +12,22 @@ function reduce_current($signal)
 	if ($signal === SIGCHLD) {
 		$current--;
 	}
+}
+
+// become a daemon
+if (($pid = pcntl_fork()) === -1) {
+	die("fork error");
+} elseif ($pid) {
+	exit;
+} else {
+	if (posix_setsid() === -1)
+		die("setsid error");
+	
+	if (($pid = pcntl_fork()) === -1) 
+		die("fork error");
+	elseif($pid) 
+		exit;
+	
 }
 
 while(1) {
@@ -22,6 +38,7 @@ while(1) {
 	} elseif ($pid) {
 		//father process
 		if ($current >= $max ) {
+			//blocking
 			if(pcntl_wait($status) === -1) {
 				//log or exit
 			}
