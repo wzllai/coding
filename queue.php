@@ -85,16 +85,16 @@ class Ucenter_Queue
 	 */
 	public function getKey($type)
 	{
-		if ($type == self::SNS_COMMENT_ADD)
+		if ($type === self::SNS_COMMENT_ADD)
 			return Ucenter_Config::get("queue.sns.comment.key");
 			
-		if ($type == self::SNS_POST_FEEDBACK)
+		if ($type === self::SNS_POST_FEEDBACK)
 			return Ucenter_Config::get('postscan.feedback.post.appid');	
 			
-		if ($type == self::SNS_COMMENT_FEEDBACK)
+		if ($type === self::SNS_COMMENT_FEEDBACK)
 			return Ucenter_Config::get("postscan.feedback.comment.appid");	
 			
-		if ($type == self::SNS_POST_DELETE)
+		if ($type === self::SNS_POST_DELETE)
 			return Ucenter_Config::get('httpsqs.key.delpost');
 			
 		return null;	
@@ -134,9 +134,9 @@ class Ucenter_Queue
 	 */
 	public function toPostscan($data, $type)
 	{
-		if ($type == self::POSTSCAN_POST) {
+		if ($type === self::POSTSCAN_POST) {
 			$config = Ucenter_Config::get("postscan.post")->toArray();
-		} elseif ($type == self::POSTSCAN_COMMENT) {
+		} elseif ($type === self::POSTSCAN_COMMENT) {
 			$config = Ucenter_Config::get("postscan.comment")->toArray();
 		} else {
 			return null;
