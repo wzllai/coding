@@ -1,5 +1,4 @@
 <?php
-<?php
 /**
  * 涉及到队列的操作
  * 通过常量定义的类型获取具体的key配置
@@ -27,7 +26,7 @@ class Ucenter_Queue
 	 * 观点发送到sns队列
 	 * @var int
 	 */
-	const SNS_POST_ADD			= 3;
+	const SNS_POST_ADD		= 3;
 	
 	/**
 	 * 评论发送到sns队列
@@ -36,7 +35,7 @@ class Ucenter_Queue
 	const SNS_COMMENT_ADD		= 4;
 	
 	/**
-G	 * 观点审核反馈
+	 * 观点审核反馈
 	 * @var int
 	 */
 	const SNS_POST_FEEDBACK		= 5;
