@@ -12,8 +12,8 @@ class TestTools {
 	private $_basePath;
 	const ERROR_LOST_PARAM_NAME 	= 1;
 	const ERROR_LOST_PARAM_OTHER 	= 2;
-	const ERROR_CODE_EXIT 			= 3;
-	const ERROR_UNFUND				= 4;
+	const ERROR_CODE_EXIT 		= 3;
+	const ERROR_UNFUND		= 4;
 
 	public function __construct() {
 		$this->_basePath = '';
