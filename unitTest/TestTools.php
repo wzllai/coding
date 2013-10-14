@@ -12,8 +12,8 @@ class TestTools {
 	private $_basePath;
 	const ERROR_LOST_PARAM_NAME 	= 1;
 	const ERROR_LOST_PARAM_OTHER 	= 2;
-	const ERROR_CODE_EXIT 		= 3;
-	const ERROR_UNFUND		= 4;
+	const ERROR_CODE_EXIT 			= 3;
+	const ERROR_UNFUND				= 4;
 
 	public function __construct() {
 		$this->_basePath = '';
@@ -51,9 +51,6 @@ class TestTools {
 	}
 
 	public function getOriginalClass() {
-		if (class_exists($this->args['name'], false)) {
-			return true;
-		}
 		if (isset($this->args['module'][0])) {
 			$this->_basePath .= 'modules/' . $this->args['module'] . "/";
 		}
@@ -74,15 +71,14 @@ class TestTools {
 		}		
 	}
 
-
 	public function generate() {
  		$className 	= $this->args['name'];
  		$date 		= date('Y-m-d H:i:s'); 
  		$reflect 	= new ReflectionClass($className);
  		$methods 	= $reflect->getMethods(ReflectionMethod::IS_PUBLIC);
- 		$str = "<?php\nrequire __DIR__ . '/Base.php';\n/**\n * this is {$this->args['name']} unitTestCase code\n * generated at {$date} \n *\n */\n class {$className}Test extends Base{\n";
+ 		$str = "<?php\nrequire 'Base.php';\n/**\n * this is {$this->args['name']} unitTestCase code\n * generated at {$date} \n *\n */\n class {$className}Test extends Base{\n";
  		foreach ($methods as $method) {
- 			if ($method->class == $className && substr($method->class, 0, 2) != '__') {
+ 			if ($method->class == $className && (substr($method->name, 0, 2) != '__')) {
  				$name = ucfirst($method->name);
  				$str .= "\n\tfunction test{$name}() {\n\t\n\t}\n";
  			}
@@ -146,7 +142,7 @@ HELP;
 	public static function main() {
 		define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 		set_include_path(implode(PATH_SEPARATOR, array(
-			realpath(APPLICATION_PATH . '/../library'),
+			APPLICATION_PATH . '/../library',
 			get_include_path(),
 		)));
 
